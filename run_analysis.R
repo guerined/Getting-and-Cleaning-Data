@@ -54,5 +54,5 @@ data$activity <- factor(data$activity, levels=activity_lbl$V1, labels=activity_l
 tidy_dataset <- ddply(mean_and_std, .(id), .fun=function(x){ colMeans(x[,-c(1:2)]) })
 colnames(tidy_dataset)[-c(1:2)] <- paste(colnames(tidy_dataset)[-c(1:2)], "_mean", sep="")
 
-file <- paste("tidy_dataset.csv" ,sep="")
-write.csv(tidy_dataset,file)
+file <- paste("tidy_dataset.txt")
+write.table(tidy_dataset,file, row.name=FALSE)
